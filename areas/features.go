@@ -47,7 +47,7 @@ type FeatureData struct {
 }
 
 func GetFeatures(vrc *veoRide.VeoRideClient) (*Features, error) {
-	req, _ := http.NewRequest("POST", "https://cluster-prod.veoride.com/api/customers/areas/features", nil)
+	req, _ := http.NewRequest("GET", "https://cluster-prod.veoride.com/api/customers/areas/features", nil)
 	res, err := vrc.MakeRequest(req)
 	if err != nil {
 		return nil, err

@@ -20,7 +20,7 @@ type PriceData struct {
 }
 
 func GetPrices(vrc *veoRide.VeoRideClient) (*Prices, error) {
-	req, _ := http.NewRequest("POST", "https://cluster-prod.veoride.com/api/customers/areas/prices", nil)
+	req, _ := http.NewRequest("GET", "https://cluster-prod.veoride.com/api/customers/areas/prices", nil)
 	res, err := vrc.MakeRequest(req)
 	if err != nil {
 		return nil, err

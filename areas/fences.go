@@ -23,7 +23,7 @@ type FenceData struct {
 }
 
 func GetFences(vrc *veoRide.VeoRideClient) (*Fences, error) {
-	req, _ := http.NewRequest("POST", "https://cluster-prod.veoride.com/api/customers/areas/fences", nil)
+	req, _ := http.NewRequest("GET", "https://cluster-prod.veoride.com/api/customers/areas/fences", nil)
 	res, err := vrc.MakeRequest(req)
 	if err != nil {
 		return nil, err
