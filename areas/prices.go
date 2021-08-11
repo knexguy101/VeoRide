@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"veoRide"
+	"github.com/knexguy101/VeoRide"
 )
 
 type Prices struct {

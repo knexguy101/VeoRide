@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"veoRide"
+	"github.com/knexguy101/VeoRide"
 )
 
 type Vehicles struct {
