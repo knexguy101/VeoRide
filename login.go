@@ -24,7 +24,7 @@ type VeoRideLoginResponse struct {
 }
 
 func (vrc *VeoRideClient) Login(phone int64, smsCodeChan chan string) error {
-	err := vrc.getCode(phone)
+	err := vrc.GetCode(phone)
 	if err != nil {
 		return err
 	}
@@ -34,10 +34,10 @@ func (vrc *VeoRideClient) Login(phone int64, smsCodeChan chan string) error {
 		return errors.New("channel did not recieve sms code")
 	}
 
-	return vrc.sendLogin(phone, code)
+	return vrc.SendLogin(phone, code)
 }
 
-func (vrc *VeoRideClient) sendLogin(phone int64, code string) error {
+func (vrc *VeoRideClient) SendLogin(phone int64, code string) error {
 
 	//send request to login
 	resDat, _ := json.Marshal(VeoRideLoginRequest{
@@ -79,7 +79,7 @@ func (vrc *VeoRideClient) sendLogin(phone int64, code string) error {
 	return nil
 }
 
-func (vrc *VeoRideClient) getCode(phone int64) error {
+func (vrc *VeoRideClient) GetCode(phone int64) error {
 
 	//send request for sms code
 	req, _ := http.NewRequest("GET", fmt.Sprintf("https://cluster-prod.veoride.com/api/customers/auth/auth-code?phone=%d", phone), nil)
